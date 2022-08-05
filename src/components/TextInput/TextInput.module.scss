@@ -1,0 +1,97 @@
+@use "../../sass/abstracts" as *;
+
+.textInputWrapper {
+  position: relative;
+}
+.textInputContent {
+  position: relative;
+  border-radius: $border-radius;
+  @extend %flex-row-center;
+  // margin: 0 auto;
+  @include inputSizeHandler($text-input-sizes, $text-input-width-height);
+  padding: rem(14);
+  &.small {
+    padding: rem(9);
+  }
+
+  border: 2px solid transparent;
+  background-color: $textInput-enabled-bgr;
+  color: $text-input-text-clr;
+
+  .input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+  }
+  &:hover {
+    background-color: $textInput-hover-bgr;
+  }
+  &.filled {
+    border-color: $textInput-filled-border;
+    background-color: $textInput-filled-bgr;
+  }
+  &:focus-within {
+    border-color: $textInput-focus-border;
+    background-color: $textInput-focus-bgr;
+  }
+  &.error {
+    border-color: $textInput-err-border;
+    background-color: $textInput-error-bgr;
+    color: $textInput-err-border;
+  }
+
+  .icon {
+    svg {
+      path {
+        color: inherit;
+      }
+    }
+    &.iconWithOnClick {
+      cursor: pointer;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.04),
+      0px 6px 16px rgba(0, 0, 0, 0.05);
+    border-radius: $border-radius;
+    max-height: rem(263);
+    overflow-y: scroll;
+
+    z-index: 9999;
+    background-color: var(--white);
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    ul {
+      padding: rem(8);
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: rem(8) rem(4);
+        &:hover {
+          cursor: pointer;
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+}
+.errorMessage {
+  display: inline-block;
+  color: $textInput-err-border;
+  margin-top: rem(8);
+}
+.disabled {
+  background-color: $selectInput-disabled-bgr;
+  color: $selectInput-disabled-clr;
+  opacity: 0.6;
+  cursor: not-allowed;
+}

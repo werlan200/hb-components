@@ -1,0 +1,45 @@
+@use "../../sass/abstracts" as *;
+
+.btn {
+  @extend %flex-row-center;
+  font-size: 2rem;
+  border-radius: $border-radius;
+  letter-spacing: normal;
+  font-weight: 600;
+  text-transform: capitalize;
+  // white-space: nowrap;
+  cursor: pointer;
+
+  //set button's color & bgr-color & border, based on selector.
+  @each $btn-type, $btn-type-obj in $btn-colors-map {
+    &.#{$btn-type} {
+      @include btnBorderMixin($btn-type);
+      @each $btn-selector, $btn-selector-map in $btn-type-obj {
+        @each $property, $value in $btn-selector-map {
+          @if $btn-selector == default {
+            #{$property}: $value;
+          } @else {
+            &:#{$btn-selector} {
+              #{$property}: $value;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include btnSizesAndPaddings;
+  @include secondaryBtnOpacity;
+
+  svg {
+    margin-inline: 0.2rem;
+    path {
+      color: inherit;
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}

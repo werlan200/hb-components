@@ -1,0 +1,33 @@
+@use "../abstracts/" as *;
+
+.segmentsWrapper {
+  position: relative;
+  @extend %flex-row-center;
+  background-color: #f0f0f0;
+  border-radius: $border-radius;
+  padding: rem(2);
+  width: fit-content;
+
+  &.fluid {
+    width: 100%;
+    > button {
+      flex: 1;
+    }
+  }
+  &.small {
+    > button {
+      padding: rem(4) rem(12);
+      font-size: rem(14);
+    }
+  }
+  .activeSegment {
+    position: absolute;
+    left: 0;
+    height: 90%;
+    z-index: 2;
+    transition: all 0.7s ease;
+    background-color: var(--white);
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 6px 16px rgba(0, 0, 0, 0.06);
+    border-radius: rem(6);
+  }
+}

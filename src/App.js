@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./sass/styles.scss";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import {
+  ButtonPage,
+  SegmentPage,
+  SharedLayout,
+  TabPage,
+  ToastPage,
+  TextInputPage,
+  DrawerPage,
+  SelectInputPage,
+  TablePage,
+} from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<ButtonPage />} />
+          <Route index path="tab" element={<TabPage />} />
+          <Route index path="segment" element={<SegmentPage />} />
+          <Route index path="toast" element={<ToastPage />} />
+          <Route index path="text-input" element={<TextInputPage />} />
+          <Route index path="drawer" element={<DrawerPage />} />
+          <Route index path="select-input" element={<SelectInputPage />} />
+          <Route index path="table" element={<TablePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

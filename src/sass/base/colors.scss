@@ -1,0 +1,60 @@
+:root {
+  //First 3 comps
+  //-------------primary
+  --orange: #ff6000;
+  --deep-orange: #e35600;
+  --dark-orange: #cc4d00;
+  --black-50: #cccccc; //disable komponent arkasi
+  //-------------seconday
+  --black-70: #919191;
+  //-------------tertiary
+  --cornflowers: #6c84fa;
+  --cornflowers-60: #5163bb;
+  --cornflowers-70: #3c4a8c;
+  //-------------ghost
+  --black-100: #484848; //def yazi,
+  --orange-100: #c25700; //focus yazi
+  //-------------UI
+  --fire-engeine-red: #f90000;
+  --fire-engeine-red-60: #ba0000;
+  --fire-engeine-red-70: #8c0000;
+  --lightish-green: #5ad363;
+  --lightish-green-60: #439e4a;
+  --lightish-green-70: #327637;
+
+  --bubble-border: #f0f0f0;
+
+  //######## TOAST
+  --toast-err-bgr: #ffe5e5;
+  --toast-err-title: #bf0000;
+  --toast-warning-bgr: #fff9e5;
+  --toast-warning-title: #876700;
+  --toast-info-bgr: #f0f2ff;
+  --toast-info-title: #5365bf;
+  --toast-success-bgr: #e5ffe7;
+  --toast-success-title: #006907;
+
+  --toast-mobile-err-title: #fa0000;
+  --toast-mobile-info-title: #6b83fa;
+  --toast-mobile-warning-title: #b38900;
+  --toast-mobile-success-title: #008a09;
+
+  --toast-text: #666666;
+
+  //######## INPUT
+  --textInput-enabled-bgr: #e5e5e5;
+  --textInput-hover-bgr: #f0f0f0;
+  --textInput-focus-bgr: #ffffff;
+  --textInput-filled-bgr: #ffffff;
+  --textInput-error-bgr: #ffe5e5;
+  --textInput-disabled-bgr: #f5f5f5;
+
+  --textInput-filled-border: #dadada;
+  --textInput-focus-border: #ff6000;
+
+  --textInput-text-clr: #212121;
+  --textInput-placeholder-clr: #9b9b9b;
+  --textInput-err-clr: #fa0000;
+  //GENERALS
+  --white: #ffffff;
+}

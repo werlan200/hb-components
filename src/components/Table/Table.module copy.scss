@@ -1,0 +1,64 @@
+@use "../../sass/abstracts" as *;
+
+// .divimsi {
+//   width: 100%;
+//   //   height: 100px;
+//   overflow: auto;
+// }
+
+// .table {
+//   //   width: 90%;
+//   //   margin: 0 auto;
+//   border-collapse: collapse;
+//   width: max-content;
+//   border-spacing: 0; //border collapseyerine
+//   border: 1px solid $table-border-clr;
+//   border-radius: $border-radius $border-radius 0 0;
+//   thead {
+//     th {
+//       position: relative;
+//       background-color: $table-head-bgr;
+//       font-size: $table-head-font-size;
+//       font-weight: $table-head-font-weight;
+//       text-align: left;
+//       height: 46px;
+//       padding: 10px;
+//       //   width: 100px;
+//       &::after {
+//         position: absolute;
+//         content: "";
+//         width: 2px;
+//         height: 100%;
+//         transform: translateX(25%);
+//         z-index: 999;
+//         top: 0;
+//         right: 0;
+//         cursor: ew-resize;
+//         background-color: $table-border-clr;
+//       }
+//     }
+//     & th:nth-child(1) {
+//       border-radius: $border-radius 0 0 0;
+//     }
+//     & th:nth-last-child(1) {
+//       border-radius: 0 $border-radius 0 0;
+//     }
+//   }
+//   tbody {
+//     td {
+//       //   background-color: $table-body-bgr;
+//       font-size: $table-body-font-size;
+//       font-weight: $table-body-font-weight;
+//       //   border: 1px solid $table-border-clr;
+//       border-top: 1px solid $table-border-clr;
+//       height: 56px;
+//       //   width: 100px;
+//       padding: 10px;
+//     }
+//   }
+
+//   //   tbody td,
+//   //   thead th {
+//   //     // width: 100px;
+//   //   }
+// }

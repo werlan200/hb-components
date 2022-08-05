@@ -1,0 +1,24 @@
+@use "../../sass/abstracts" as *;
+
+.treeNode {
+  position: relative;
+  padding: $treeNode-padding;
+  align-self: stretch;
+  &:hover {
+    cursor: pointer;
+  }
+  & > .treeNode::before {
+    content: "";
+    position: absolute;
+    background-color: grey;
+    min-height: 100%;
+    width: 1px;
+    left: rem(6);
+    top: 0;
+  }
+  &.disabledTreeNode {
+    color: $selectInput-disabled-clr;
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+}

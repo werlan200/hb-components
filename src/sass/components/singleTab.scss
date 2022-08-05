@@ -1,0 +1,48 @@
+@use "../abstracts/" as *;
+
+.singleTabWrapper {
+  position: relative;
+  @extend %flex-row-center;
+  min-width: rem(80);
+  min-height: rem(40);
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  padding: rem(10) rem(16) rem(7);
+  &.fluid {
+    width: rem(260);
+  }
+  .singleTabContent {
+    @extend %flex-row-center;
+    gap: rem(8);
+    .singleTabTitle {
+      text-transform: capitalize;
+      color: #9b9b9b;
+      &.activeTitle {
+        color: #212121;
+      }
+    }
+    .singleTabBubble {
+      color: #666666;
+      font-weight: 700;
+      background-color: var(--white);
+      border: 2px solid var(--bubble-border);
+      border-radius: $border-radius * 2;
+      padding: 0 rem(4);
+    }
+  }
+  .singleTabActiveLine {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: rem(3);
+    background-color: #ff6000;
+    border-radius: rem(2) rem(2) 0 0;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}

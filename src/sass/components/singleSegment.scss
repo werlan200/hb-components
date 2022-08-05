@@ -1,0 +1,16 @@
+@use "../abstracts/" as *;
+
+.singleSegmentWrapper {
+  @extend %button-reset;
+  background: transparent;
+  z-index: 3;
+  padding: rem(10) rem(16);
+  text-transform: capitalize;
+  cursor: pointer;
+  color: #666666;
+  font-weight: 600;
+  font-size: rem(16);
+  &.active {
+    color: #212121;
+  }
+}

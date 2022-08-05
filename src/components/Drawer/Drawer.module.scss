@@ -1,0 +1,109 @@
+@use "../../sass/abstracts" as *;
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  .section {
+    position: relative;
+    float: right;
+    height: 100vh;
+    max-height: 100vh;
+    width: 100vw;
+    min-width: 100vw;
+    background-color: $drawer-section-bgr;
+    box-shadow: $drawer-section-box-shadow;
+    .header {
+      position: relative;
+      width: 100%;
+      height: rem(64);
+      @extend %flex-row-center;
+      box-shadow: none;
+      transition: $drawer-transition;
+      &.revealHeader {
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2),
+          0px 6px 16px rgba(0, 0, 0, 0.06);
+      }
+      .drawerCloseBtn {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        border: none;
+        border-radius: 50%;
+        margin-left: rem(12);
+        transform: translateY(-50%);
+        padding: rem(10);
+        @extend %flex-row-center;
+        cursor: pointer;
+      }
+      .headerTitle {
+        opacity: 0;
+        font-size: rem(18);
+        transition: $drawer-transition;
+        transform: scale(1.1) translateY(10%);
+        &.headerTitleVisible {
+          transform: none;
+          opacity: 1;
+        }
+      }
+    }
+    .content {
+      padding: 0 rem(32);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: auto;
+      @extend %hide-scroll-bar;
+      .contentTitleWrapper {
+        width: 100%;
+        text-align: left;
+        margin-bottom: rem(32);
+        opacity: 1;
+        transition: $drawer-transition;
+        &.contentTitleWrapperInvisible {
+          opacity: 0;
+          transform: translateY(-50%);
+        }
+        .contentTitle {
+          font-size: rem(28);
+        }
+        p {
+          color: #666666;
+        }
+      }
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: rem(24);
+      @extend %flex-row-center;
+      box-shadow: 0px -5px 20px var(--white);
+    }
+  }
+
+  @include desktop {
+    .section {
+      min-width: min-content; //kullanici prop vermezse kontroller
+      max-width: 70%;
+      .header {
+        height: rem(84);
+        .drawerCloseBtn {
+          margin-left: rem(24);
+        }
+      }
+      .content {
+        padding: 0 rem(72);
+      }
+      .footer {
+        padding: rem(32);
+      }
+    }
+  }
+}

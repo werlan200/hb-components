@@ -1,0 +1,91 @@
+@use "../../sass/abstracts" as *;
+
+.selectInputWrapper {
+  margin: 100px auto; //gecici ortalama
+  position: relative;
+  border-radius: $border-radius;
+  cursor: pointer;
+
+  @include inputSizeHandler($selectInput-sizes, $selectInput-width-height);
+  font-size: nth($selectInput-font-size, 1);
+  &.small {
+    font-size: nth($selectInput-font-size, 2);
+  }
+  background-color: $selectInput-enabled-bgr;
+  color: $selectInput-placeholder-clr;
+
+  .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: nth($selectInput-padding-left, 1);
+    &.small {
+      padding-left: nth($selectInput-padding-left, 2);
+    }
+    .icon {
+      width: 48px;
+      height: 48px;
+      @extend %flex-row-center;
+      &.smallIcons {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  &:hover {
+    background-color: $selectInput-hover-bgr;
+    color: $selectInput-text-clr;
+  }
+  &.filled {
+    border: $selectInput-filled-border;
+    background-color: $selectInput-filled-bgr;
+    color: $selectInput-text-clr;
+  }
+  &.error {
+    border: $selectInput-err-border;
+    background-color: $selectInput-error-bgr;
+    color: $selectInput-err-clr;
+  }
+  &.focus {
+    background-color: $selectInput-focus-bgr;
+    border: $selectInput-focus-border;
+    box-shadow: $selectInput-focus-box-shadow;
+    color: $selectInput-text-clr;
+  }
+  &.disabled {
+    background-color: $selectInput-disabled-bgr;
+    color: $selectInput-disabled-clr;
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+  .dropdown {
+    position: absolute;
+    box-shadow: $selectInput-dropdown-box-shadow;
+    border-radius: $border-radius;
+    background-color: var(--white);
+    max-height: rem(263);
+    overflow-y: scroll;
+    z-index: 999;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .errorMessage {
+    position: absolute;
+    display: inline-block;
+    max-width: rem(210);
+    hyphens: auto;
+    z-index: -1;
+    left: 0;
+    margin-top: rem(9);
+    color: inherit;
+  }
+}

@@ -1,0 +1,95 @@
+@use "../../sass/abstracts" as *;
+$max-column-number: 20;
+
+.wrapper {
+  width: 90%;
+  overflow: hidden;
+  margin: 0 auto; //suanlik ortalamak icin
+  display: flex;
+}
+.table {
+  overflow: auto;
+  .row {
+    position: relative;
+    display: flex;
+    .rowHoverContainer {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+    &:hover {
+      .rowHoverContainer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background: linear-gradient(
+          270deg,
+          #ffffff 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+    }
+    .cell {
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex; //flex for aligning vertically
+      align-items: center;
+      padding-inline: 10px;
+      .cellContent {
+        // width: 100%;
+        // height: 100%;
+        width: max-content;
+        white-space: nowrap;
+      }
+    }
+  }
+  .head {
+    width: min-content;
+    border-radius: $border-radius $border-radius 0 0;
+    border: 1px solid $table-border-clr;
+    background-color: $table-head-bgr;
+    .cell {
+      font-size: $table-head-font-size;
+      font-weight: $table-head-font-weight;
+      height: 46px;
+      color: $table-head-clr;
+      @extend %prevent-text-select;
+    }
+  }
+  .body {
+    width: min-content;
+    .row {
+      border: 1px solid $table-border-clr;
+      border-top: none;
+      background-color: $table-body-bgr;
+    }
+    .cell {
+      font-size: $table-body-font-size;
+      font-weight: $table-body-font-weight;
+      height: 56px;
+      color: $table-body-clr;
+    }
+  }
+}
+.resizeColumnContainer {
+  position: absolute;
+  width: 10px;
+  height: 90%;
+  right: 0;
+  background-color: inherit;
+  z-index: 46;
+  border-radius: $border-radius;
+  &.resizeColumnContainerHover {
+    cursor: ew-resize;
+    background-color: var(--orange);
+  }
+}
+//creating placeholder column class because using modules
+@for $i from 0 to $max-column-number {
+  .c#{$i} {
+    background-color: transparent;
+  }
+}

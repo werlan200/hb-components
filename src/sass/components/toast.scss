@@ -1,0 +1,104 @@
+@use "../abstracts" as *;
+
+.toast {
+  border-radius: $border-radius;
+  padding: rem(16);
+  @include toastColorHandler($toast-mobile-title-clr, "color");
+  background-color: var(--white);
+  outline: 1px solid limegreen;
+
+  animation-name: mobileToastAnimation;
+  position: fixed;
+  top: -25%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include desktop {
+    @include toastColorHandler($toast-title-clr, "color");
+    @include toastColorHandler($toast-bgr, "background-color");
+    box-shadow: inset 6px 0px 0px;
+    padding: rem(16) rem(16) rem(16) rem(24);
+    right: -50%;
+    top: 5%;
+    left: initial;
+    transform: none;
+    animation-name: desktopToastAnimation;
+    transition: all 0.3s ease-out;
+  }
+
+  .content {
+    text-align: left;
+    padding-left: 6px;
+    .contentHeader {
+      @extend %toast-content-grid;
+      h6 {
+        font-size: rem(14);
+        font-weight: 600;
+        color: inherit;
+      }
+      & > * {
+        @extend %flex-row-center;
+      }
+    }
+    .contentDescription {
+      margin-top: rem(6);
+      @extend %toast-content-grid;
+      p {
+        font-size: rem(14);
+        color: var(--toast-text);
+      }
+      .btn {
+        justify-content: flex-start;
+        padding-left: 0;
+        background-color: inherit;
+        @include desktop {
+          color: inherit;
+        }
+      }
+    }
+  }
+  svg {
+    path {
+      color: inherit;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    animation-play-state: paused;
+  }
+}
+
+@keyframes mobileToastAnimation {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    top: 5%;
+    opacity: 1;
+  }
+  90% {
+    top: 5%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: -25%;
+  }
+}
+@keyframes desktopToastAnimation {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    right: 2%;
+    opacity: 1;
+  }
+  90% {
+    right: 2%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    right: -50%;
+  }
+}

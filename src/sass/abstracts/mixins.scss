@@ -1,0 +1,101 @@
+@use "variables" as *;
+@use "sass:list";
+@use "sass:map";
+@use "sass:color";
+
+@mixin btnBorderMixin($type) {
+  $colorPlaceHolder: "transparent" !default;
+  @if $type == "ghost" {
+    $colorPlaceHolder: var(--black-50);
+  }
+  border: 2px solid #{$colorPlaceHolder};
+}
+
+//based on button sizes, set =>
+//paddings, width&height, textSize
+@mixin btnSizesAndPaddings {
+  $len: length($btn-sizes);
+  @for $index from 1 through $len {
+    $btnSize: nth($btn-sizes, $index);
+    $padding: nth($btn-paddings, $index);
+    $widthAndHeight: nth($btn-icon-width-height, $index);
+    $textSize: nth($btn-text-size, $index);
+
+    @if $btnSize == "default" {
+      & {
+        padding: nth($padding, 1) nth($padding, 2);
+        font-size: $textSize;
+        & svg {
+          width: nth($widthAndHeight, 1);
+          height: nth($widthAndHeight, 2);
+        }
+      }
+    } @else {
+      &.#{$btnSize} {
+        padding: nth($padding, 1) nth($padding, 2);
+        font-size: $textSize;
+        & svg {
+          width: nth($widthAndHeight, 1);
+          height: nth($widthAndHeight, 2);
+        }
+      }
+    }
+  }
+}
+
+@mixin secondaryBtnOpacity {
+  $bgrColor: #ff6000; //secondary btn bgr, var() is not accepted
+  $disabledBgr: #cccccc;
+
+  @each $key, $val in $btn-secondary-opacity {
+    @if $key == "default" {
+      &.secondary {
+        background-color: color.change($bgrColor, $alpha: $val);
+      }
+    } @else if $key== "disabled" {
+      &.secondary:#{$key} {
+        background-color: color.change($disabledBgr, $alpha: $val);
+      }
+    } @else {
+      &.secondary:#{$key} {
+        background-color: color.change($bgrColor, $alpha: $val);
+      }
+    }
+  }
+}
+
+@mixin desktop {
+  @media (min-width:#{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin toastColorHandler($colorArray, $property) {
+  $len: length($toast-types);
+  @for $index from 1 through $len {
+    $toastType: nth($toast-types, $index);
+    $color: nth($colorArray, $index);
+    &.#{$toastType} {
+      #{$property}: #{$color};
+    }
+  }
+}
+
+@mixin inputSizeHandler($sizeArray, $valuesArray) {
+  $len: length($sizeArray);
+  @for $index from 1 through $len {
+    $size: nth($sizeArray, $index);
+    $widthAndHeightArr: nth($valuesArray, $index);
+    @if $size == "default" {
+      & {
+        width: nth($widthAndHeightArr, 1);
+        height: nth($widthAndHeightArr, 2);
+      }
+    } @else {
+      &.#{$size} {
+        width: nth($widthAndHeightArr, 1);
+        height: nth($widthAndHeightArr, 2);
+      }
+    }
+  }
+}

@@ -1,0 +1,263 @@
+@use "functions" as *;
+
+$desktop-width: 700px;
+$letter-spacing: rem(3);
+$border-radius: 8px;
+$btn-sizes: ("large", "default", "small", "tiny");
+$btn-paddings: (
+  (rem(16), rem(45)),
+  (rem(12), rem(24)),
+  (rem(8), rem(16)),
+  (rem(4), rem(8))
+);
+$btn-icon-width-height: (
+  (rem(24), rem(24)),
+  (rem(24), rem(24)),
+  (rem(20), rem(20)),
+  (rem(16), rem(16))
+);
+$btn-text-size: (rem(16), rem(16), rem(14), rem(12));
+$btn-secondary-opacity: (
+  "default": 0.08,
+  "hover": 0.12,
+  "focus": 0.2,
+  "disabled": 1,
+);
+
+$btn-colors-map: (
+  "primary": (
+    "default": (
+      "background-color": var(--orange),
+      "color": var(--white),
+    ),
+    "hover": (
+      "background-color": var(--deep-orange),
+      "color": var(--white),
+    ),
+    "focus": (
+      "background-color": var(--dark-orange),
+      "color": var(--white),
+    ),
+    "disabled": (
+      "background-color": var(--black-50),
+      "color": var(--black-70),
+    ),
+  ),
+  "secondary": (
+    "default": (
+      "background-color": var(--orange),
+      "color": var(--orange),
+    ),
+    "hover": (
+      "background-color": var(--orange),
+      "color": var(--orange),
+    ),
+    "focus": (
+      "background-color": var(--orange),
+      "color": var(--orange),
+    ),
+    "disabled": (
+      "background-color": var(--black-50),
+      "color": var(--black-70),
+    ),
+  ),
+  "tertiary": (
+    "default": (
+      "background-color": var(--cornflowers),
+      "color": var(--white),
+    ),
+    "hover": (
+      "background-color": var(--cornflowers-60),
+      "color": var(--white),
+    ),
+    "focus": (
+      "background-color": var(--cornflowers-70),
+      "color": var(--white),
+    ),
+    "disabled": (
+      "background-color": var(--black-50),
+      "color": var(--black-70),
+    ),
+  ),
+  "ghost": (
+    "default": (
+      "background-color": var(--white),
+      "color": var(--black-100),
+    ),
+    "hover": (
+      "background-color": var(--white),
+      "color": var(--orange),
+    ),
+    "focus": (
+      "background-color": var(--white),
+      "color": var(--orange-100),
+    ),
+    "disabled": (
+      "background-color": var(--white),
+      "color": var(--black-70),
+    ),
+  ),
+  "link-primary": (
+    "default": (
+      "background-color": var(--white),
+      "color": var(--orange),
+    ),
+    "hover": (
+      "background-color": var(--white),
+      "color": var(--orange-100),
+    ),
+    "focus": (
+      "background-color": var(--white),
+      "color": var(--orange-100),
+    ),
+    "disabled": (
+      "background-color": var(--white),
+      "color": var(--black-70),
+    ),
+  ),
+  "link-ghost": (
+    "default": (
+      "background-color": var(--white),
+      "color": var(--black-100),
+    ),
+    "hover": (
+      "background-color": var(--white),
+      "color": var(--orange),
+    ),
+    "focus": (
+      "background-color": var(--white),
+      "color": var(--orange-100),
+    ),
+    "disabled": (
+      "background-color": var(--white),
+      "color": var(--black-70),
+    ),
+  ),
+  "ui-danger": (
+    "default": (
+      "background-color": var(--fire-engeine-red),
+      "color": var(--white),
+    ),
+    "hover": (
+      "background-color": var(--fire-engeine-red-60),
+      "color": var(--white),
+    ),
+    "focus": (
+      "background-color": var(--fire-engeine-red-70),
+      "color": var(--white),
+    ),
+    "disabled": (
+      "background-color": var(--black-50),
+      "color": var(--black-70),
+    ),
+  ),
+  "ui-success": (
+    "default": (
+      "background-color": var(--lightish-green),
+      "color": var(--white),
+    ),
+    "hover": (
+      "background-color": var(--lightish-green-60),
+      "color": var(--white),
+    ),
+    "focus": (
+      "background-color": var(--lightish-green-70),
+      "color": var(--white),
+    ),
+    "disabled": (
+      "background-color": var(--black-50),
+      "color": var(--black-70),
+    ),
+  ),
+);
+
+//########### TOAST MESSAGE
+$toast-types: ("error", "warning", "info", "success");
+$toast-bgr: (
+  var(--toast-err-bgr),
+  var(--toast-warning-bgr),
+  var(--toast-info-bgr),
+  var(--toast-success-bgr)
+);
+$toast-title-clr: (
+  var(--toast-err-title),
+  var(--toast-warning-title),
+  var(--toast-info-title),
+  var(--toast-success-title)
+);
+$toast-mobile-title-clr: (
+  var(--toast-mobile-err-title),
+  var(--toast-mobile-warning-title),
+  var(--toast-mobile-info-title),
+  var(--toast-mobile-success-title)
+);
+
+//######## TEXT INPUT
+$text-input-sizes: ("default", "small");
+$text-input-width-height: ((rem(260), rem(48)), (rem(260), rem(32)));
+$text-input-placeholder-clr: var(--textInput-placeholder-clr);
+$text-input-text-clr: var(--textInput-text-clr);
+//bgr
+$textInput-enabled-bgr: var(--textInput-enabled-bgr);
+$textInput-hover-bgr: var(--textInput-hover-bgr);
+$textInput-focus-bgr: var(--white);
+$textInput-filled-bgr: var(--white);
+$textInput-error-bgr: var(--textInput-error-bgr);
+$textInput-disabled-bgr: var(--textInput-disabled-bgr);
+//border
+$textInput-filled-border: var(--textInput-filled-border);
+$textInput-focus-border: var(--textInput-focus-border);
+$textInput-err-border: var(--textInput-err-clr);
+
+//######## DRAWER
+
+$drawer-overlay-bgr: rgba(0, 0, 0, 0.1);
+$drawer-section-bgr: var(--white);
+$drawer-section-box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1),
+  0px 1px 4px rgba(0, 0, 0, 0.04), 0px 6px 16px rgba(0, 0, 0, 0.05);
+
+$drawer-title-clr: #212121;
+$drawer-subtitle-clr: #666666;
+$drawer-transition: all 0.7s cubic-bezier(0.26, 0.33, 0.97, 0.02);
+
+//######## SELECT INPUT
+$selectInput-sizes: ("default", "small");
+$selectInput-width-height: ((rem(260), rem(48)), (rem(228), rem(32)));
+$selectInput-padding-left: (rem(16), rem(12));
+$selectInput-font-size: (rem(16), rem(12));
+//bgr
+$selectInput-enabled-bgr: #e5e5e5;
+$selectInput-hover-bgr: #f0f0f0;
+$selectInput-focus-bgr: #ffffff;
+$selectInput-filled-bgr: #ffffff;
+$selectInput-error-bgr: #ffe5e5;
+$selectInput-disabled-bgr: #f5f5f5;
+
+$selectInput-focus-border: 2px solid #f0f0f0;
+$selectInput-focus-box-shadow: 0px 0px 0px 3px rgba(108, 132, 250, 0.2);
+
+$selectInput-filled-border: 2px solid #dadada;
+$selectInput-err-border: 2px solid #fa0000;
+
+$selectInput-placeholder-clr: #666666;
+$selectInput-text-clr: #212121;
+$selectInput-disabled-clr: #9b9b9b;
+$selectInput-err-clr: #fa0000;
+$selectInput-dropdown-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.04),
+  0px 6px 16px rgba(0, 0, 0, 0.05);
+
+//####### TREE NODE
+$treeNode-padding: rem(12) rem(12) rem(12) rem(16);
+
+//####### TABLE
+$table-head-bgr: #f5f5f5;
+$table-head-font-size: rem(12);
+$table-head-font-weight: 600;
+$table-head-clr: #484848;
+
+$table-body-bgr: #ffffff;
+$table-body-font-size: rem(14);
+$table-body-font-weight: 400;
+$table-body-clr: #646464;
+
+$table-border-clr: #dadada;

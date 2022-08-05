@@ -1,0 +1,10 @@
+.segmentPageWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+  padding-inline: 2rem;
+  ul > li {
+    margin: 2rem 0;
+  }
+}
